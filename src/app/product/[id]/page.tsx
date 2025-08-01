@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import type { Product } from "@/lib/types";
 import {
@@ -11,12 +10,9 @@ import {
 import AddToCartButton from "@/components/add-to-cart-button";
 import { notFound } from "next/navigation";
 
-interface ProductDetailsPageProps {
-  params: { id: string };
-}
-
+type Params = Promise<{ id: string }>;
 // Fetch a single product
-async function getProduct(id: string): Promise<Product | null> {
+async function getProduct(id: string) {
   const res = await fetch(`https://fakestoreapi.com/products/${id}`, {
     next: { revalidate: 3600 },
   });
@@ -30,16 +26,15 @@ export async function generateStaticParams() {
   const res = await fetch("https://fakestoreapi.com/products");
   const products: Product[] = await res.json();
 
-  return products.map((product) => ({
+  return products.map(product => ({
     id: product.id.toString(),
   }));
 }
 
 // Generate metadata for SEO & social sharing
-export async function generateMetadata(
-  { params }: ProductDetailsPageProps
-): Promise<Metadata> {
-  const product = await getProduct(params.id);
+export async function generateMetadata({ params }: { params: Params }) {
+  const { id } = await params;
+  const product = await getProduct(id);
 
   if (!product) {
     return {
@@ -76,8 +71,12 @@ export async function generateMetadata(
 // Product Details Page Component
 export default async function ProductDetailsPage({
   params,
-}: ProductDetailsPageProps) {
-  const product = await getProduct(params.id);
+}: {
+  params: Params;
+}) {
+  console.log("details params", params);
+  const { id } = await params;
+  const product = await getProduct(id);
 
   if (!product) return notFound();
 
