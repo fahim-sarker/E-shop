@@ -78,7 +78,7 @@ export default function OrderDetailsPageClient({ id }: Props) {
                   <TableRow key={item.id}>
                     <TableCell>
                       <Image
-                        src={item.image || "/placeholder.svg"}
+                        src={item.image }
                         alt={item.title}
                         width={60}
                         height={60}

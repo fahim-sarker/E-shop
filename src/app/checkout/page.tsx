@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import toast from "react-hot-toast" // Changed from sonner
+import toast from "react-hot-toast"
 import { XCircle } from "lucide-react"
 
 export default function CheckoutPage() {
@@ -61,7 +61,7 @@ export default function CheckoutPage() {
       setOrderPlaced(true)
       toast.success(`Your order successfully placed.`) // Using toast.success
     } else {
-      toast.error("Please fill in all required fields correctly.") // Using toast.error
+      toast.error("Please fill in all required fields correctly.")
     }
   }
 
@@ -97,7 +97,7 @@ export default function CheckoutPage() {
                 {cartItems.map((item) => (
                   <div key={item.id} className="flex items-center border-b pb-4 last:border-b-0">
                     <Image
-                      src={item.image || "/placeholder.svg"}
+                      src={item.image}
                       alt={item.title}
                       width={80}
                       height={80}

@@ -9,12 +9,12 @@ export default function ProductCard({ product }: { product: Product }) {
     <Card className="flex flex-col h-full group cursor-pointer">
       <CardHeader className="flex-grow">
         <Image
-          src={product.image || "/placeholder.svg"}
+          src={product.image}
           alt={product.title}
           width={200}
           height={200}
           className="w-full h-48 object-contain mb-4 rounded-md group-hover:scale-110 transition-transform duration-300 ease-in-out"
-          priority={false} // Only eager load critical images
+          priority={false}
         />
         <CardTitle className="text-lg font-semibold line-clamp-2">{product.title}</CardTitle>
       </CardHeader>

@@ -85,7 +85,7 @@ export default async function ProductDetailsPage({
       <Card className="flex flex-col md:flex-row items-center md:items-start p-6 gap-8">
         <div className="md:w-1/2 flex justify-center border p-5 rounded-lg">
           <Image
-            src={product.image || "/placeholder.svg"}
+            src={product.image}
             alt={product.title}
             width={400}
             height={400}
