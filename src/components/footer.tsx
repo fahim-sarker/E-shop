@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-          <p className="text-gray-400">123 E-Shop Lane, Tech City, 12345</p>
+          <p className="text-gray-400">Rk Mission Road Motijheel, Dhaka</p>
           <p className="text-gray-400">Email: support@eshop.com</p>
           <p className="text-gray-400">Phone: (123) 456-7890</p>
         </div>

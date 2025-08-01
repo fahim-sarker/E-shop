@@ -95,7 +95,7 @@ export default async function ProductDetailsPage({
         </div>
         <div className="md:w-1/2 space-y-4">
           <CardHeader className="p-0">
-            <CardTitle className="text-4xl font-extrabold text-gray-900">
+            <CardTitle className="lg:text-4xl text-xl font-extrabold text-gray-900">
               {product.title}
             </CardTitle>
             <CardDescription className="text-gray-600 lg:text-lg text-base">
