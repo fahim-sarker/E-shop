@@ -5,13 +5,19 @@ import { addToCart } from "@/lib/redux/slices/cartSlice"
 import type { Product } from "@/lib/types"
 import { Button } from "@/components/ui/button"
 import toast from "react-hot-toast"
+import { useRouter } from "next/navigation"
+
 
 export default function AddToCartButton({ product }: { product: Product }) {
   const dispatch = useDispatch()
+  const router = useRouter();
 
   const handleAddToCart = () => {
     dispatch(addToCart(product))
     toast.success(`Product added to your cart.`) 
+    setTimeout(() => {
+      router.push("/checkout")
+    }, 1000);
   }
 
   return (
